@@ -13,24 +13,21 @@ window.addEventListener("load", function(){
             <li>Diameter: ${json[3].diameter}</li>
             <li>Star: ${json[3].star}</li>
             <li>Distance from Earth: ${json[3].distance}</li>
-            <li>Number of Moons: ${json[3].moon}</li> 
+            <li>Number of Moons: ${json[3].moons}</li> 
             </ol>
+            <img src=${json[3].image} height=250></img>
          `;
       });  
    });
 /*
-    <ol>
-            
-    </ol>
 <img src="${https://solarsystem.nasa.gov/system/resources/detail_files/16278_PIA20016.jpg}"></img>
-   const destination = document.getElementById("destination");
-   destination.innerHTML = `<h2>Mission Destination ${json[3].name}</h2>`;
+   
 */     
 let launchStatus = document.getElementById("launchStatus");
 let faultyItems = document.getElementById("faultyItems");
    faultyItems.style.visibility = "hidden";//hide all the time unless there's an error
-let pilotStatus = document.getElementById("pilotStatus");
-let copilotStatus = document.getElementById("copilotStatus");
+// let pilotStatus = document.getElementById("pilotStatus");
+// let copilotStatus = document.getElementById("copilotStatus");
 let fuelStatus = document.getElementById("fuelStatus");
 let cargoStatus = document.getElementById("cargoStatus");   
 
