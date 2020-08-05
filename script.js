@@ -1,27 +1,15 @@
 // Write your JavaScript code here!  
 window.addEventListener("load", function(){
+   let json = [];
    fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
-               response.json().then( function(json) {
-                  const destination = document.getElementById("mission destination");
-                  destination.addEventListener("click", function(){
-                     
-                  // Add HTML that includes the JSON data
-                  destination.innerHTML = `
+      response.json().then(function(json){
+         console.log(response);
+      });  
+   });
 
-                  <h2>Mission Destination</h2>
-                  <ol>
-                        <li>Name ${json.name}</li>
-                        <li>Diameter ${json.diameter}</li>
-                        <li>Star ${json.star}</li>
-                        <li>Distance From Earth ${json.distance}</li>
-                        <li>Moon ${json.moon}</li>
-                  </ol>
-                     <img src=$https://solarsystem.nasa.gov/system/resources/detail_files/16278_PIA20016.jpg>
-                  `;
-               });
-            });
-
-
+   const destination = document.getElementById("destination");
+   destination.innerHTML = `<h2>Mission Destination ${json[3].name}</h2>`;
+      
 let launchStatus = document.getElementById("launchStatus");
 let faultyItems = document.getElementById("faultyItems");
    faultyItems.style.visibility = "hidden";//hide all the time unless there's an error
