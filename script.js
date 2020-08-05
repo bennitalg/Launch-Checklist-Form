@@ -4,12 +4,28 @@ window.addEventListener("load", function(){
    fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
       response.json().then(function(json){
          console.log(response);
+         const div = document.getElementById("missionTarget");
+         // Add HTML that includes the JSON data
+         div.innerHTML = `
+         <h2>Mission Destination</h2>
+            <ol>
+            <li>Name: ${json[3].name}</li>
+            <li>Diameter: ${json[3].diameter}</li>
+            <li>Star: ${json[3].star}</li>
+            <li>Distance from Earth: ${json[3].distance}</li>
+            <li>Number of Moons: ${json[3].moon}</li> 
+            </ol>
+         `;
       });  
    });
-
+/*
+    <ol>
+            
+    </ol>
+<img src="${https://solarsystem.nasa.gov/system/resources/detail_files/16278_PIA20016.jpg}"></img>
    const destination = document.getElementById("destination");
    destination.innerHTML = `<h2>Mission Destination ${json[3].name}</h2>`;
-      
+*/     
 let launchStatus = document.getElementById("launchStatus");
 let faultyItems = document.getElementById("faultyItems");
    faultyItems.style.visibility = "hidden";//hide all the time unless there's an error
@@ -24,7 +40,7 @@ form.addEventListener("submit", function(event){
 
 let pilotName = document.querySelector("input[name=pilotName]");
 let copilotName = document.querySelector("input[name=copilotName]");
-let fuelLevel = document.querySelector("input[name =fuelLevel]");
+let fuelLevel = document.querySelector("input[name=fuelLevel]");
 let fuelLevelValue = Number(fuelLevel.value);
 let cargoMass = document.querySelector("input[name=cargoMass]");  
 let cargoMassValue = Number(cargoMass.value);
