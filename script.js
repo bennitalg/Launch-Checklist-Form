@@ -26,8 +26,9 @@ window.addEventListener("load", function(){
 let launchStatus = document.getElementById("launchStatus");
 let faultyItems = document.getElementById("faultyItems");
    faultyItems.style.visibility = "hidden";//hide all the time unless there's an error
-// let pilotStatus = document.getElementById("pilotStatus");
-// let copilotStatus = document.getElementById("copilotStatus");
+let pilotStatus = document.getElementById("pilotStatus");
+let copilotStatus = document.getElementById("copilotStatus");
+
 let fuelStatus = document.getElementById("fuelStatus");
 let cargoStatus = document.getElementById("cargoStatus");   
 
@@ -51,7 +52,9 @@ fuelStatus.innerHTML = "There is enough fuel for the journey.";
          alert("Please enter a number to proceed!");
       } else {
       faultyItems.style.visibility = "visible";
-      
+      pilotStatus.innerhtml = "Pilot:{pilotName} Pilot ready for take off!";
+      copilotStatus.innerhtml = "Copilot:{copilotName} Copilot ready for take off!";
+
       if(fuelLevelValue < 10000){
          fuelStatus.innerHTML = "There is not enough fuel for the journey.";
          launchStatus.innerHTML = "Shuttle not ready for launch.";
@@ -65,6 +68,7 @@ fuelStatus.innerHTML = "There is enough fuel for the journey.";
          console.log("else if");
       
       } else {
+         
          launchStatus.innerHTML = "Shuttle is ready for launch";
          launchStatus.style.color = "green";
          console.log("else");
